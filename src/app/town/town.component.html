@@ -1,0 +1,12 @@
+<div class="town-title">
+  <button mat-raised-button (click)="fetchTownsOrCities()">Show Towns/Cities</button>
+
+  <div *ngIf="townsOrCities.length > 0">
+    <h3>Towns/Cities</h3>
+    <ul>
+      <li *ngFor="let town of townsOrCities">
+        {{ town.townOrCity }} ({{ town.zipCode }})
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <div class="sidebutton"><a [routerLink]="['/home']">Home</a></div>
+      <div class="sidebutton"><a [routerLink]="['/province-automplete']">Provinces</a></div>
+      <div class="sidebutton"><a [routerLink]="['/']">Logout</a></div>
+  </div>
+  <div class="content">
+    <div class="province-title">
+      <mat-form-field appearance="fill">
+        <mat-label>Province</mat-label>
+        <input type="text" matInput [formControl]="provinceControl" [matAutocomplete]="provinceAuto">
+        <mat-autocomplete #provinceAuto="matAutocomplete">
+          <mat-option *ngFor="let province of filteredProvinces | async" [value]="province">
+            {{ province }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <app-town [provinceControl]="provinceControl"></app-town>
+    </div>
+
+    
+  </div>
+</div>
